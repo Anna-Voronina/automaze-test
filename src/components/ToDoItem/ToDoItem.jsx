@@ -34,7 +34,7 @@ export const ToDoItem = ({ toDo }) => {
 
   return (
     <>
-      <li className="flex items-center justify-between gap-3 rounded-lg bg-sky-500 py-2 px-4 md:py-3 md:px-7">
+      <li className="flex items-center justify-between gap-3 rounded-lg bg-mainBlue py-2 px-4 md:py-3 md:px-7">
         <div className="flex items-center gap-3">
           <input
             type="checkbox"

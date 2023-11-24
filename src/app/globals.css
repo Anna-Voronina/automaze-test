@@ -30,4 +30,19 @@ body {
   .text-overflow {
     overflow-wrap: break-word;
   }
+
+  .background-image {
+    background-image: url(/bg_1x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30% 30%;
+  }
+
+  @media (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .background-image {
+      background-image: url(/bg_2x.jpg);
+    }
+  }
 }

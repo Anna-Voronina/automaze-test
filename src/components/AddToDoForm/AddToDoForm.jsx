@@ -6,21 +6,23 @@ export const AddToDoForm = () => {
   return (
     <form
       action={addToDoAction}
-      className="flex flex-col md:flex-row justify-center items-center gap-7 bg-sky-500 w-full pt-20 pb-10"
+      className="flex flex-col justify-center items-center gap-7 bg-sky-500 w-full pt-32 pb-10 background-image"
     >
       <input
         type="text"
         name="description"
         placeholder="Enter your todo..."
-        className="w-4/5 md:w-2/4 h-10 p-3 rounded-lg bg-white"
+        className="w-4/5 md:w-2/4 h-14 py-3 px-4 rounded-lg bg-white placeholder:text-lg"
       />
-      <PriorityRange />
-      <button
-        type="submit"
-        className="flex justify-center items-center h-10 py-3 px-5 rounded-lg bg-white"
-      >
-        <IoAddOutline size={24} className="stroke-sky-600" />
-      </button>
+      <div className="flex flex-col gap-y-6 items-center">
+        <PriorityRange />
+        <button
+          type="submit"
+          className="flex justify-center items-center py-3 px-8 rounded-lg bg-white"
+        >
+          <IoAddOutline size={30} className="stroke-mainBlue" />
+        </button>
+      </div>
     </form>
   );
 };
