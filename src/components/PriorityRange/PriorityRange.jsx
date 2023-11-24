@@ -11,18 +11,21 @@ export const PriorityRange = ({ priority }) => {
   };
 
   return (
-    <>
-      <input
-        type="range"
-        name="priority"
-        min={1}
-        max={10}
-        step={1}
-        value={rangeValue}
-        onChange={handleRangeChange}
-      />
-      <span>{rangeValue}</span>
-    </>
+    <div className="flex flex-col items-center gap-y-3">
+      <p>Set priority of your todo</p>
+      <div className="flex items-center gap-x-3">
+        <input
+          type="range"
+          name="priority"
+          min={1}
+          max={10}
+          step={1}
+          value={rangeValue}
+          onChange={handleRangeChange}
+        />
+        <span className="text-lg">{rangeValue}</span>
+      </div>
+    </div>
   );
 };
 

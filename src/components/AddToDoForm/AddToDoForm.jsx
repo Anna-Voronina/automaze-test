@@ -6,13 +6,13 @@ export const AddToDoForm = () => {
   return (
     <form
       action={addToDoAction}
-      className="flex justify-center items-center gap-7 bg-sky-500 w-full pt-20 pb-10"
+      className="flex flex-col md:flex-row justify-center items-center gap-7 bg-sky-500 w-full pt-20 pb-10"
     >
       <input
         type="text"
         name="description"
-        placeholder="Enter text..."
-        className="w-2/4 h-10 p-3 rounded-lg bg-white"
+        placeholder="Enter your todo..."
+        className="w-4/5 md:w-2/4 h-10 p-3 rounded-lg bg-white"
       />
       <PriorityRange />
       <button
