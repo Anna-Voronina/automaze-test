@@ -1,10 +1,14 @@
 import { AddToDoForm } from "@/components/AddToDoForm/AddToDoForm";
-import Image from "next/image";
+import { ToDoList } from "@/components/ToDoList/ToDoList";
+import { getAllToDos } from "@/services/api";
 
-export default function Home() {
+export default async function Home() {
+  const toDos = await getAllToDos();
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
+    <main className="flex min-h-screen flex-col items-center gap-8">
       <AddToDoForm />
+      <ToDoList toDos={toDos} />
     </main>
   );
 }
