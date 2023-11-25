@@ -43,18 +43,20 @@ export const ToDoItem = ({ toDo }) => {
             onChange={handleChangeStatus}
             className="peer w-5 h-5 md:w-6 md:h-6 cursor-pointer"
           />
-          <p className="w-32 text-overflow md:w-80 xl:w-96 md:text-xl peer-checked:line-through peer-checked:text-gray-300">
+          <p className="w-28 text-overflow md:w-80 xl:w-96 md:text-xl peer-checked:line-through peer-checked:text-gray-300">
             {description}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <button type="button" onClick={handleDeleteToDo} className="group">
-            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
-          </button>
+          <span className="flex justify-center items-center p-1 w-7 md:w-9 xl:w-10 border-[1px] border-solid border-white rounded-[50%] text-sm md:text-lg font-bold">
+            {priority}
+          </span>
           <button type="button" onClick={handleModalOpen} className="group">
             <CiEdit className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
           </button>
-          <span className="w-3 font-bold">{priority}</span>
+          <button type="button" onClick={handleDeleteToDo} className="group">
+            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
+          </button>
         </div>
       </li>
       {isModalOpen && (

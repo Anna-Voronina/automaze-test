@@ -32,7 +32,7 @@ export const PriorityRange = ({ priority, setPriority, variant }) => {
           onChange={handleRangeChange}
           className="cursor-pointer"
         />
-        <span className="w-4 text-hoverBlue">{priority}</span>
+        <span className="w-4 text-white xl:text-hoverBlue">{priority}</span>
       </div>
     </div>
   );

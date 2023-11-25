@@ -4,8 +4,10 @@ const instance = axios.create({
   baseURL: "https://automaze-test-backend.onrender.com/api",
 });
 
-export const getAllToDos = async () => {
-  const { data } = await instance.get("/todos");
+export const getAllToDos = async (params) => {
+  const { data } = await instance.get("/todos", {
+    params,
+  });
   return data;
 };
 
