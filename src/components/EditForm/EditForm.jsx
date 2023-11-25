@@ -11,6 +11,7 @@ export const EditForm = ({ toDo, handleModalClose }) => {
   const { description, priority, completed } = toDo;
 
   const [descr, setDescr] = useState(description);
+  const [priorityRange, setPriorityRange] = useState(priority ? priority : 1);
 
   const handleDescriptionChange = (event) => {
     setDescr(event.target.value);
@@ -26,19 +27,31 @@ export const EditForm = ({ toDo, handleModalClose }) => {
   };
 
   return (
-    <div className="flex flex-col gap-y-3 items-center">
-      <h2 className="text-3xl font-medium">Edit</h2>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-y-3">
+    <div className="flex flex-col gap-y-7 justify-center items-center">
+      <h2 className="text-3xl md:text-4xl font-bold text-mainBlue">Editing</h2>
+      <form
+        onSubmit={handleSubmit}
+        className="flex flex-col gap-y-5 justify-center items-center w-full"
+      >
         <input
           type="text"
           name="description"
           placeholder="Enter text..."
-          className="w-2/4 h-10 p-3 rounded-lg bg-white"
+          className="w-full md:w-4/5 h-10 p-3 md:py-5 md:px-6 rounded-lg border-2 xl:border-[3px] border-solid border-mainBlue text-lg hover:border-hoverBlue focus:border-hoverBlue focus:outline-none transition-colors"
           value={descr}
           onChange={handleDescriptionChange}
         />
-        <PriorityRange priority={priority} />
-        <button type="submit">Complete</button>
+        <PriorityRange
+          priority={priorityRange}
+          setPriority={setPriorityRange}
+          variant="edit"
+        />
+        <button
+          type="submit"
+          className="py-2 md:py-3 px-5 md:px-6 xl:px-7 rounded-sm bg-mainBlue text-base xl:text-xl font-medium text-white hover:bg-hoverBlue focus:bg-hoverBlue transition-colors"
+        >
+          Complete
+        </button>
       </form>
     </div>
   );
