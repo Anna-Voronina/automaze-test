@@ -4,9 +4,20 @@ import { revalidatePath } from "next/cache";
 import {
   addToDo,
   deleteToDo,
+  getAllToDos,
   updateCompletedStatus,
   updateToDo,
 } from "@/services/api";
+
+export const getAllToDosAction = async (params) => {
+  try {
+    return await getAllToDos(params);
+  } catch (error) {
+    console.log(error);
+  }
+
+  revalidatePath("/");
+};
 
 export const addToDoAction = async (formData) => {
   try {

@@ -45,4 +45,8 @@ body {
       background-image: url(/bg_2x.jpg);
     }
   }
+
+  .radio-label {
+    @apply flex justify-center items-center gap-1 cursor-pointer text-base md:text-lg xl:text-xl md:font-medium text-hoverBlue;
+  }
 }
