@@ -34,27 +34,27 @@ export const ToDoItem = ({ toDo }) => {
 
   return (
     <>
-      <li className="flex items-center justify-between gap-3 rounded-lg bg-mainBlue py-2 px-4 md:py-3 md:px-7">
+      <li className="flex items-center justify-between gap-3 rounded-lg bg-mainBlue py-2 px-4 md:py-3 md:px-7 text-lg text-white">
         <div className="flex items-center gap-3">
           <input
             type="checkbox"
             name="completed"
             defaultChecked={completed}
             onChange={handleChangeStatus}
-            className="w-5 h-5 md:w-6 md:h-6"
+            className="peer w-5 h-5 md:w-6 md:h-6 cursor-pointer"
           />
-          <p className="w-32 text-overflow md:w-80 xl:w-96 text-lg md:text-xl">
+          <p className="w-32 text-overflow md:w-80 xl:w-96 md:text-xl peer-checked:line-through peer-checked:text-gray-300">
             {description}
           </p>
         </div>
         <div className="flex items-center gap-3">
-          <button type="button" onClick={handleDeleteToDo}>
-            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white" />
+          <button type="button" onClick={handleDeleteToDo} className="group">
+            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
           </button>
-          <button type="button" onClick={handleModalOpen}>
-            <CiEdit className="w-7 h-7 md:w-8 md:h-8 fill-white" />
+          <button type="button" onClick={handleModalOpen} className="group">
+            <CiEdit className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
           </button>
-          <span className="w-3">{priority}</span>
+          <span className="w-3 font-bold">{priority}</span>
         </div>
       </li>
       {isModalOpen && (

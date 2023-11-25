@@ -3,7 +3,7 @@ import { ToDoItem } from "../ToDoItem/ToDoItem";
 
 export const ToDoList = ({ toDos }) => {
   return (
-    <ul className="flex flex-col gap-y-5">
+    <ul className="flex flex-col gap-y-5 p-5">
       {toDos.map((toDo) => (
         <ToDoItem key={toDo._id} toDo={toDo} />
       ))}

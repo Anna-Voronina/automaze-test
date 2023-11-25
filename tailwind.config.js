@@ -9,6 +9,7 @@ module.exports = {
     extend: {
       colors: {
         mainBlue: "#4877b2",
+        hoverBlue: "#304f75",
       },
       boxShadow: {
         snowWhite: "0 0 3px 3px #ffffffc2;",

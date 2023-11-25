@@ -39,7 +39,7 @@ export const Modal = ({ children, onClose }) => {
         onClick={handleClickBackdrop}
         className="fixed z-50 top-0 left-0 flex justify-center items-center w-[100vw] h-screen pt-9 px-5 bg-[#020f14bf] backdrop-blur-[25px] overflow-auto"
       >
-        <div className="relative flex flex-col gap-y-6 p-4 mx-auto bg-white">
+        <div className="relative min-w-[300px] md:min-w-[500px] xl:min-w-[700px] p-4 xl:p-7 mx-auto rounded-lg bg-white">
           <button
             type="button"
             aria-label="close modal"
