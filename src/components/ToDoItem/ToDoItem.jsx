@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteForever } from "react-icons/md";
+import { toast } from "react-toastify";
 
 import { Modal } from "../Modal/Modal";
 import { EditForm } from "../EditForm/EditForm";
@@ -12,15 +13,26 @@ import { updateToDoStatus, deleteToDoAction } from "@/serverActions/actions";
 
 export const ToDoItem = ({ toDo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [disabled, setDisabled] = useState(false);
 
   const { description, priority, completed } = toDo;
 
   const handleChangeStatus = async () => {
-    await updateToDoStatus({ toDoId: toDo._id, completed: !completed });
+    try {
+      await updateToDoStatus({ toDoId: toDo._id, completed: !completed });
+    } catch (error) {
+      toast.error("Server error. Try again later.");
+    }
   };
 
   const handleDeleteToDo = async () => {
-    await deleteToDoAction(toDo._id);
+    try {
+      setDisabled(true);
+      await deleteToDoAction(toDo._id);
+      setDisabled(false);
+    } catch (error) {
+      toast.error("Server error. Try again later.");
+    }
   };
 
   const handleModalOpen = () => {
@@ -54,8 +66,13 @@ export const ToDoItem = ({ toDo }) => {
           <button type="button" onClick={handleModalOpen} className="group">
             <CiEdit className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
           </button>
-          <button type="button" onClick={handleDeleteToDo} className="group">
-            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 transition-colors" />
+          <button
+            type="button"
+            onClick={handleDeleteToDo}
+            className="group"
+            disabled={disabled}
+          >
+            <MdDeleteForever className="w-7 h-7 md:w-8 md:h-8 fill-white group-hover:fill-teal-300 group-focus:fill-teal-300 group-disabled:opacity-30 transition-colors" />
           </button>
         </div>
       </li>

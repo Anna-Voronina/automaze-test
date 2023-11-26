@@ -1,4 +1,7 @@
+import { ToastContainer } from "react-toastify";
 import { Inter } from "next/font/google";
+
+import "react-toastify/dist/ReactToastify.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -14,6 +17,7 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
         {children}
         <div id="modal-portal"></div>
+        <ToastContainer autoClose={2000} theme="colored" />
       </body>
     </html>
   );
