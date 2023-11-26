@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ToDo App 🚀
 
-## Getting Started
+[Live App](https://automaze-test.vercel.app/)
 
-First, run the development server:
+![TaskMaster](./public/todoapp.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Project Description
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Welcome to the ToDo App repository! ToDo App is a simple and efficient TODO web application that allows you to manage your tasks seamlessly. Whether you need to create a new task, mark it as done, set priorities, or search for specific tasks, ToDo App has got you covered.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📋 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **Task List:** View a comprehensive list of all your tasks.
+- **Add and Remove Tasks:** Easily add new tasks to the list and remove completed tasks.
+- **Search Functionality:** Search for tasks using a convenient search bar.
+- **Mark as Done:** Mark tasks as done to keep track of your progress.
+- **Filter by Status:** Filter tasks based on their status (all/done/undone).
+- **Priority Assignment:** Assign priority to tasks on a scale from 1 to 10.
+- **Sortable Tasks:** Sort tasks by priority in ascending or descending order.
 
-## Learn More
+## 🛠️ Technologies Used
 
-To learn more about Next.js, take a look at the following resources:
+- Backend: Node.js [GitHub Repository](https://github.com/Anna-Voronina/automaze-test-backend)
+- Frontend: React with Next.js and Tailwind CSS
+- Axios
+- React Icons
+- ESLint
+- PropTypes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🚀 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Clone the repository: `https://github.com/Anna-Voronina/automaze-test`
+2. Navigate to the project directory: `cd automaze-test`
+3. Install all dependencies: `npm install` or `yarn install`
+4. Start the project: `npm run dev` or `yarn dev`
+5. Access the application on: `http://localhost:3000`
 
-## Deploy on Vercel
+## 🌐 Deployment
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Optionally, the application is deployed using [Vercel](https://vercel.com/) at [https://automaze-test.vercel.app/](https://automaze-test.vercel.app/).
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📝 Note for Developers
+
+Please refer to the [backend repository](https://github.com/Anna-Voronina/automaze-test-backend) if you need to explore or modify the backend code.
+
+## 🙌 Acknowledgments
+
+ToDo App was built with passion and the desire to simplify task management. Hope you find it helpful and user-friendly.
+
+Happy tasking! 🚀
