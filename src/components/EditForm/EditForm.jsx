@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { toast } from "react-toastify";
 
 import { PriorityRange } from "../PriorityRange/PriorityRange";
 
@@ -21,8 +22,14 @@ export const EditForm = ({ toDo, handleModalClose }) => {
     event.preventDefault();
 
     const formData = new FormData(event.target);
-    await updateToDoAction({ toDoId: toDo._id, formData });
 
+    try {
+      await updateToDoAction({ toDoId: toDo._id, formData });
+    } catch (error) {
+      toast.error("Server error. Try again later.");
+    }
+
+    document.body.style.overflow = "auto";
     handleModalClose();
   };
 

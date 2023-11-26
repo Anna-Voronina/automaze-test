@@ -1,5 +1,6 @@
 import { AddToDoForm } from "@/components/AddToDoForm/AddToDoForm";
 import { Filters } from "@/components/Filters/Filters";
+import { NoToDos } from "@/components/NoToDos/NoToDos";
 import { ToDoList } from "@/components/ToDoList/ToDoList";
 import { getAllToDos } from "@/services/api";
 
@@ -23,10 +24,14 @@ export default async function Home({ searchParams }) {
   return (
     <main className="flex min-h-screen flex-col items-center gap-8">
       <AddToDoForm />
-      <div className="flex flex-col gap-y-3 md:gap-y-8 p-3 md:5 mx-auto">
-        <Filters />
-        <ToDoList toDos={toDos} />
-      </div>
+      {toDos.length > 0 ? (
+        <div className="flex flex-col gap-y-3 md:gap-y-8 p-3 md:5 mx-auto">
+          <Filters />
+          <ToDoList toDos={toDos} />
+        </div>
+      ) : (
+        <NoToDos />
+      )}
     </main>
   );
 }

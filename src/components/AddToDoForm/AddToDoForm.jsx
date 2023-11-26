@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
+import { toast } from "react-toastify";
 import { addToDoAction } from "@/serverActions/actions";
 import { PriorityRange } from "../PriorityRange/PriorityRange";
 
@@ -16,13 +17,21 @@ export const AddToDoForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
+    const isDescrFieldEmpty = !event.target.elements.description.value;
+
+    if (isDescrFieldEmpty) {
+      toast.info("Please enter the text for your todo.");
+      return;
+    }
+
     const formData = new FormData(event.currentTarget);
 
     try {
       await addToDoAction(formData);
       resetAddForm();
     } catch (error) {
-      console.error(error);
+      toast.error("Server error. Try again later.");
     }
   };
 

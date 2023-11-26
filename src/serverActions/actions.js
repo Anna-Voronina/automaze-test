@@ -13,7 +13,7 @@ export const getAllToDosAction = async (params) => {
   try {
     return await getAllToDos(params);
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 
   revalidatePath("/");
@@ -28,7 +28,7 @@ export const addToDoAction = async (formData) => {
 
     await addToDo(toDo);
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 
   revalidatePath("/");
@@ -38,7 +38,7 @@ export const deleteToDoAction = async (toDoId) => {
   try {
     await deleteToDo(toDoId);
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 
   revalidatePath("/");
@@ -48,7 +48,7 @@ export const updateToDoStatus = async ({ toDoId, completed }) => {
   try {
     await updateCompletedStatus({ toDoId, completed });
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 
   revalidatePath("/");
@@ -63,7 +63,7 @@ export const updateToDoAction = async ({ toDoId, formData }) => {
 
     await updateToDo({ toDoId, updatedToDo });
   } catch (error) {
-    console.log(error);
+    console.log(error.response.data.message);
   }
 
   revalidatePath("/");
