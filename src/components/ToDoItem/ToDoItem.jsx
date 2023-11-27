@@ -10,6 +10,7 @@ import { Modal } from "../Modal/Modal";
 import { EditForm } from "../EditForm/EditForm";
 
 import { updateToDoStatus, deleteToDoAction } from "@/serverActions/actions";
+import { getUserIdFromLocalStorage } from "@/utils/getUserIdFromLocalStorage";
 
 export const ToDoItem = ({ toDo }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -17,21 +18,27 @@ export const ToDoItem = ({ toDo }) => {
 
   const { description, priority, completed } = toDo;
 
+  const userId = getUserIdFromLocalStorage();
+
   const handleChangeStatus = async () => {
     try {
-      await updateToDoStatus({ toDoId: toDo._id, completed: !completed });
+      await updateToDoStatus({
+        toDoId: toDo._id,
+        completed: !completed,
+        params: { userId },
+      });
     } catch (error) {
-      toast.error("Server error. Try again later.");
+      toast.error(error.message);
     }
   };
 
   const handleDeleteToDo = async () => {
     try {
       setDisabled(true);
-      await deleteToDoAction(toDo._id);
+      await deleteToDoAction({ toDoId: toDo._id, params: { userId } });
       setDisabled(false);
     } catch (error) {
-      toast.error("Server error. Try again later.");
+      toast.error(error.message);
     }
   };
 

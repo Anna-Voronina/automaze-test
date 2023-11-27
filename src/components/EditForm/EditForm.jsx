@@ -7,12 +7,15 @@ import { toast } from "react-toastify";
 import { PriorityRange } from "../PriorityRange/PriorityRange";
 
 import { updateToDoAction } from "@/serverActions/actions";
+import { getUserIdFromLocalStorage } from "@/utils/getUserIdFromLocalStorage";
 
 export const EditForm = ({ toDo, handleModalClose }) => {
   const { description, priority, completed } = toDo;
 
   const [descr, setDescr] = useState(description);
   const [priorityRange, setPriorityRange] = useState(priority ? priority : 1);
+
+  const userId = getUserIdFromLocalStorage();
 
   const handleDescriptionChange = (event) => {
     setDescr(event.target.value);
@@ -24,9 +27,13 @@ export const EditForm = ({ toDo, handleModalClose }) => {
     const formData = new FormData(event.target);
 
     try {
-      await updateToDoAction({ toDoId: toDo._id, formData });
+      await updateToDoAction({
+        toDoId: toDo._id,
+        formData,
+        params: { userId },
+      });
     } catch (error) {
-      toast.error("Server error. Try again later.");
+      toast.error(error.message);
     }
 
     document.body.style.overflow = "auto";
