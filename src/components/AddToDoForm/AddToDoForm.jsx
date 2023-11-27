@@ -3,8 +3,11 @@
 import { useState } from "react";
 import { IoAddOutline } from "react-icons/io5";
 import { toast } from "react-toastify";
-import { addToDoAction } from "@/serverActions/actions";
+
 import { PriorityRange } from "../PriorityRange/PriorityRange";
+
+import { addToDoAction } from "@/serverActions/actions";
+import { getUserIdFromLocalStorage } from "@/utils/getUserIdFromLocalStorage";
 
 export const AddToDoForm = () => {
   const [description, setDescription] = useState("");
@@ -25,13 +28,14 @@ export const AddToDoForm = () => {
       return;
     }
 
+    const userId = getUserIdFromLocalStorage();
     const formData = new FormData(event.currentTarget);
 
     try {
-      await addToDoAction(formData);
+      await addToDoAction({ formData, params: { userId } });
       resetAddForm();
     } catch (error) {
-      toast.error("Server error. Try again later.");
+      toast.error(error.message);
     }
   };
 
