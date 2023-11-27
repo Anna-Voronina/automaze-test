@@ -11,7 +11,6 @@ import { getUserIdFromLocalStorage } from "@/utils/getUserIdFromLocalStorage";
 
 export const PageWrapper = ({ params }) => {
   const [toDos, setToDos] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const userId = getUserIdFromLocalStorage();
@@ -19,10 +18,8 @@ export const PageWrapper = ({ params }) => {
 
     const fetchToDos = async () => {
       try {
-        setIsLoading(true);
         const fetchedToDos = await getAllToDosAction(params);
         setToDos(fetchedToDos);
-        setIsLoading(false);
       } catch (error) {
         toast.error(error.message);
       }
