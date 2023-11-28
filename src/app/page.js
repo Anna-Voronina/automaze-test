@@ -17,7 +17,7 @@ export default async function Home({ searchParams }) {
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center gap-8">
+    <main className="relative flex min-h-screen flex-col items-center gap-8">
       <AddToDoForm />
       <PageWrapper params={params} />
     </main>
