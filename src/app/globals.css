@@ -55,7 +55,7 @@ body {
   }
 
   .loader {
-    @apply absolute top-[70%] left-2/4 translate-x-[-50%] translate-y-[-50%] w-4 h-4 rounded-[50%] indent-[-9999em] animate-loader translate-z-0 text-xs text-hoverBlue;
+    @apply absolute top-3/4 left-2/4 translate-x-[-50%] translate-y-[-50%] w-4 h-4 rounded-[50%] indent-[-9999em] animate-loader translate-z-0 text-xs text-hoverBlue;
   }
 
   @keyframes mulShdSpin {
