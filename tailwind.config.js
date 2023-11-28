@@ -14,6 +14,9 @@ module.exports = {
       boxShadow: {
         snowWhite: "0 0 3px 3px #ffffffc2;",
       },
+      animation: {
+        loader: "mulShdSpin 1.3s infinite linear",
+      },
     },
   },
   plugins: [],

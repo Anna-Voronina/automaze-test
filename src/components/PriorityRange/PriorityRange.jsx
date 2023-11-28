@@ -16,7 +16,7 @@ export const PriorityRange = ({ priority, setPriority, variant }) => {
       className={`flex flex-col gap-y-3 items-center gap-x-12 rounded-xl p-3 ${
         variant === "add" &&
         "border-2 border-solid border-white shadow-snowWhite text-white"
-      } text-xl font-bold`}
+      } text-hoverBlue text-xl font-bold`}
     >
       <p className="text-center text-base md:text-lg xl:text-xl tracking-wide">
         Set priority for your todo
@@ -32,7 +32,7 @@ export const PriorityRange = ({ priority, setPriority, variant }) => {
           onChange={handleRangeChange}
           className="cursor-pointer"
         />
-        <span className="w-4 text-white xl:text-hoverBlue">{priority}</span>
+        <span className="w-4 xl:text-hoverBlue">{priority}</span>
       </div>
     </div>
   );
