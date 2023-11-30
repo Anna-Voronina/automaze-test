@@ -4,6 +4,7 @@
 
 :root {
   --foreground-rgb: 0, 0, 0;
+  --input-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
 }
@@ -11,6 +12,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
+    --input-rgb: 0, 0, 0;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
@@ -24,6 +26,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+input {
+  color: rgb(var(--input-rgb));
 }
 
 @layer components {
